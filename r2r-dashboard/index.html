@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAP R2R Financial Close Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="fa-solid fa-cube logo-icon"></i>
+                <h2>SAP Fiori <span>R2R</span></h2>
+            </div>
+            <ul class="nav-links">
+                <li class="active"><i class="fa-solid fa-chart-pie"></i> Dashboard</li>
+                <li><i class="fa-solid fa-book"></i> General Ledger</li>
+                <li><i class="fa-solid fa-money-check-dollar"></i> Accounts Payable</li>
+                <li><i class="fa-solid fa-file-invoice-dollar"></i> Accounts Receivable</li>
+                <li><i class="fa-solid fa-list-check"></i> Month-End Close</li>
+                <li><i class="fa-solid fa-chart-line"></i> Reporting</li>
+                <li><i class="fa-solid fa-gear"></i> Settings</li>
+            </ul>
+            <div class="sidebar-footer">
+                <p>SAP Integration Developer</p>
+                <p>Batch IT</p>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <header class="topbar">
+                <div class="search-bar">
+                    <i class="fa-solid fa-search"></i>
+                    <input type="text" placeholder="Search transactions, IDocs, T-Codes...">
+                </div>
+                <div class="topbar-actions">
+                    <button class="icon-btn"><i class="fa-regular fa-bell"></i><span class="badge">3</span></button>
+                    <div class="user-profile">
+                        <img src="https://ui-avatars.com/api/?name=Krishana+Kant+Yadav&background=0D8ABC&color=fff" alt="User Profile">
+                        <span>Krishana Kant Yadav</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="content-wrapper">
+                <div class="header-section">
+                    <h1>Record-to-Report (R2R) Overview</h1>
+                    <p>Month-End Financial Close Status - Period 12 / Fiscal Year 2026</p>
+                </div>
+
+                <!-- KPI Cards -->
+                <div class="kpi-grid">
+                    <div class="kpi-card glass">
+                        <div class="kpi-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                        <div class="kpi-details">
+                            <h3>Days to Close</h3>
+                            <p class="kpi-value">3.2 <span class="trend down"><i class="fa-solid fa-arrow-down"></i> 12% vs last month</span></p>
+                        </div>
+                    </div>
+                    <div class="kpi-card glass">
+                        <div class="kpi-icon warning"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                        <div class="kpi-details">
+                            <h3>Pending IDocs</h3>
+                            <p class="kpi-value">12 <span class="trend up"><i class="fa-solid fa-arrow-up"></i> Requires Action</span></p>
+                        </div>
+                    </div>
+                    <div class="kpi-card glass">
+                        <div class="kpi-icon success"><i class="fa-solid fa-check-double"></i></div>
+                        <div class="kpi-details">
+                            <h3>Reconciliation Status</h3>
+                            <p class="kpi-value">92% <span class="trend up"><i class="fa-solid fa-arrow-up"></i> 8% Pending</span></p>
+                        </div>
+                    </div>
+                    <div class="kpi-card glass">
+                        <div class="kpi-icon danger"><i class="fa-solid fa-file-pen"></i></div>
+                        <div class="kpi-details">
+                            <h3>Unposted JEs</h3>
+                            <p class="kpi-value">4 <span class="trend down"><i class="fa-solid fa-arrow-down"></i> Review Needed</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bento-grid">
+                    <!-- Progress Section -->
+                    <div class="bento-card glass progress-section">
+                        <h2>SAP FCC (Financial Closing Cockpit)</h2>
+                        <div class="progress-bar-container">
+                            <div class="progress-label">
+                                <span>Overall Completion</span>
+                                <span>78%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 78%;"></div>
+                            </div>
+                        </div>
+                        <ul class="task-list">
+                            <li class="task completed">
+                                <span><i class="fa-solid fa-circle-check"></i> Pre-Close AP/AR Cutoff (F.05)</span>
+                                <span class="status">Done</span>
+                            </li>
+                            <li class="task completed">
+                                <span><i class="fa-solid fa-circle-check"></i> Intercompany Reconciliation (ICR)</span>
+                                <span class="status">Done</span>
+                            </li>
+                            <li class="task active">
+                                <span><i class="fa-regular fa-circle-dot"></i> Bank Reconciliation (FF67)</span>
+                                <span class="status warning">In Progress</span>
+                            </li>
+                            <li class="task pending">
+                                <span><i class="fa-regular fa-circle"></i> Depreciation Run (AFAB)</span>
+                                <span class="status pending">Pending</span>
+                            </li>
+                            <li class="task pending">
+                                <span><i class="fa-regular fa-circle"></i> Foreign Currency Valuation (F.05)</span>
+                                <span class="status pending">Pending</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Postings Table -->
+                    <div class="bento-card glass table-section">
+                        <h2>Recent Journal Entries (Parked/Posted)</h2>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Document No.</th>
+                                    <th>Type</th>
+                                    <th>Amount (USD)</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>100004523</td>
+                                    <td>SA (G/L Acct)</td>
+                                    <td>$45,200.00</td>
+                                    <td><span class="badge success">Posted</span></td>
+                                    <td><button class="btn-sm"><i class="fa-solid fa-eye"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td>100004524</td>
+                                    <td>KR (Vendor)</td>
+                                    <td>$12,850.50</td>
+                                    <td><span class="badge warning">Parked</span></td>
+                                    <td><button class="btn-sm primary">Approve</button></td>
+                                </tr>
+                                <tr>
+                                    <td>100004525</td>
+                                    <td>DR (Customer)</td>
+                                    <td>$8,900.00</td>
+                                    <td><span class="badge danger">Error</span></td>
+                                    <td><button class="btn-sm danger">Fix</button></td>
+                                </tr>
+                                <tr>
+                                    <td>100004526</td>
+                                    <td>SA (G/L Acct)</td>
+                                    <td>$105,000.00</td>
+                                    <td><span class="badge warning">Parked</span></td>
+                                    <td><button class="btn-sm primary">Approve</button></td>
+                                </tr>
+                                <tr>
+                                    <td>100004527</td>
+                                    <td>AA (Asset)</td>
+                                    <td>$3,200.00</td>
+                                    <td><span class="badge success">Posted</span></td>
+                                    <td><button class="btn-sm"><i class="fa-solid fa-eye"></i></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
